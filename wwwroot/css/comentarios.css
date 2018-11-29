@@ -1,0 +1,274 @@
+*{
+    font-family: 'Algerian';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav{
+    display: flex;
+}
+
+.menu ul{
+    align-items: center;    
+    background: #1DB4D8;
+    display: flex;
+    width: 100%;
+    height: 7vh;
+    justify-content: space-between;
+    padding: 0 50px;
+    font-size: 23px;
+    /* position: fixed; */
+    text-shadow:#d3d3d3 1px -1px, #d3d3d3 -1px 1px, #d3d3d3 1px 1px, #d3d3d3 -1px -1px;
+}
+
+.menu ul li{
+    text-align: center;
+    list-style-type: none;
+    padding: 5px;
+}
+
+.menu ul a{
+    text-decoration: none;
+    color: black; 
+    text-transform: uppercase;   
+}
+
+.menu ul a:hover{
+    color: white;
+    text-decoration: underline;
+    text-shadow: none;
+}
+
+.menu form textarea{
+    height: 30px;
+    width: 130px;
+    resize: none;
+    padding: 5px;
+    text-align: center;
+}
+
+.menu img{
+    width: 30px;
+}
+
+.busca{
+    align-items: center;
+    display: flex;
+    padding-top: 7px;
+}
+
+.banner{
+    background: url('../imagens/chart-close-up-data-590022.jpg');
+    background-size: cover;
+    height: 88vh;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo{
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+}
+
+.banner h1{
+    font-size: 80px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    letter-spacing: 20px;
+    padding-bottom: 20px;
+}
+
+.banner-img img{
+    height: 100px;
+}
+
+.quebra{
+    width: 100%;
+    height: 5vh;;
+    background: #1DB4D8;
+}
+
+.titulo{
+    text-align: center;
+    padding: 3vh;
+    font-size: 25px;
+}
+
+.quase-pai{
+    display: flex;
+}
+
+.quase2{
+    padding-left: 3vw;
+}
+
+.mmmm{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 10vh;
+}
+
+.mmmm input{
+    width: 500px;
+    text-align: center;
+}
+
+.mmmm input{
+    height: 40vh;
+}
+
+.telefone{
+    text-align: center;
+    padding-top: 5vh;
+    color:red;
+    background: gainsboro;
+}
+
+.pppp{
+    display: flex;
+    justify-content: center;
+}
+
+.baixo{
+    display: flex;
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    background: gainsboro;
+}
+
+.endereco{
+    width: 30vw;
+    height: auto;
+    padding: 5vh;
+    color: red;
+    margin-right: 35vh;
+}
+
+.email{
+    color: red;
+    width: 30vw;
+    height: auto; 
+    padding: 5vw;
+}
+
+
+
+
+
+@media screen and (max-width: 1200px) {
+
+    .pppp{
+        display: flex;        
+        flex-direction: column;
+    }
+    .mmmm{
+        padding: 5vh;
+    }
+
+}
+
+@media screen and (max-width: 1050px) {
+
+    .endereco{
+        width: 45vw;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+    .endereco{
+        margin-right: 15vh;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    
+    .endereco{
+        width: auto;
+    }
+    
+    .endereco h2{
+        font-size: 2.5vh;
+    }
+
+     .telefone h2{
+          font-size: 2.5vh;
+    }
+                
+     .email h2 {
+         font-size: 2.5vh;
+     }
+}
+
+@media screen and (max-width: 845px) {
+    
+    .menu ul a{
+        font-size: 2vh;
+    }
+    
+    .banner h1{
+        font-size: 50px;
+    }
+    
+    .baixo{
+        flex-direction: column;
+    }
+    
+    .endereco{
+        margin: 0;
+        width: auto;
+        padding: 7vh;
+    }
+    
+    .email{
+        margin: 0;
+        width: auto;
+        padding: 0 0 5vh 0;
+    }
+}
+
+@media screen and (max-width: 610px) { 
+    .menu ul{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        border: 5px solid ;
+    }
+
+    .busca{
+        display: none;
+    }
+
+    .menu ul li:hover{
+        border: solid 3px lightcoral;
+    }
+
+    .banner{
+        height: 72vh;
+    }
+
+    .quebra{
+        height: 5vh;
+    }       
+}
+
+@media screen and (max-width: 520px) { 
+    
+    .banner h1{
+        font-size: 25px;
+        line-height: 8vh;
+    }
+}

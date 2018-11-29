@@ -1,0 +1,230 @@
+*{
+    font-family: 'Algerian';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav{
+    display: flex;
+}
+
+.menu ul{
+    align-items: center;    
+    background: #1DB4D8;
+    display: flex;
+    width: 100%;
+    height: 7vh;
+    justify-content: space-between;
+    padding: 0 50px;
+    font-size: 23px;
+    /* position: fixed; */
+    text-shadow:#d3d3d3 1px -1px, #d3d3d3 -1px 1px, #d3d3d3 1px 1px, #d3d3d3 -1px -1px;
+}
+
+.menu ul li{
+    text-align: center;
+    list-style-type: none;
+    padding: 5px;
+}
+
+.menu ul a{
+    text-decoration: none;
+    color: black; 
+    text-transform: uppercase;   
+}
+
+.menu ul a:hover{
+    color: white;
+    text-decoration: underline;
+    text-shadow: none;
+}
+
+.menu form textarea{
+    height: 30px;
+    width: 130px;
+    resize: none;
+    padding: 5px;
+    text-align: center;
+}
+
+.menu img{
+    width: 30px;
+}
+
+.busca{
+    align-items: center;
+    display: flex;
+    padding-top: 7px;
+}
+
+.banner{
+    background: url('../imagens/faq.jpg');
+    background-size: cover;
+    height: 88vh;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo{
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+}
+
+.banner h1{
+    font-size: 80px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    letter-spacing: 20px;
+    padding-bottom: 20px;
+}
+
+.banner-img img{
+    height: 100px;
+}
+
+.quebra{
+    width: 100%;
+    height: 5vh;;
+    background: #1DB4D8;
+}
+
+.topicos{
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+    width: 100%;
+    padding-top: 5vh;
+}
+
+.topicos h3{
+    border-top: 3px solid black;
+    width: 10vw;
+    height: auto;
+    text-align: center;
+}
+
+.tire {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 10vh 0;
+}
+
+.tire h2{
+    color: #e91e63;
+}
+
+.divs div{
+    width: 300px;
+    height: 25px;
+    border-top: solid black 3px;
+    text-align: right;
+}
+
+.divs{
+    padding: 0 0 10vh 50vh;
+}
+
+.top1{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 860px) {
+
+    .menu ul a{
+        font-size: 2vh;
+    }
+
+    .banner h1{
+        font-size: 50px;
+    }
+
+    .topicos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        height: auto;
+        width: 100%;
+        padding-top: 5vh;
+    }
+
+    .divs{
+        padding: 0 0 10vh 0;
+    }
+
+    .top1{
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 808px) {
+
+    .topicos h3{
+        font-size: 2vh;        
+    }
+}
+
+@media screen and (max-width: 610px) {
+
+    .menu ul{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        border: 5px solid ;
+    }
+
+    .busca{
+        display: none;
+    }
+
+    .menu ul li:hover{
+        border: solid 3px lightcoral;
+    }
+
+    .banner{
+        height: 72vh;
+    }
+
+    .quebra{
+        height: 5vh;
+    }
+}
+
+@media screen and (max-width: 530px) {
+
+    .banner h1{
+        font-size: 30px;
+        line-height: 8vh;
+    }
+}
+
+@media screen and (max-width: 520px) {
+
+    .divs div{
+        width: 150px;
+    }
+
+    .top1 {
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+    }
+
+    .banner h1{        
+        font-size: 25px;
+        line-height: 8vh;
+    }
+}
+
+
+/* tirar o que tem de repitido no mesmo elemento, tipo display flex */

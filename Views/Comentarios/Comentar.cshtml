@@ -41,7 +41,6 @@
     </header>
 
     <main>
-        <h1>Senha: @TempData["logado"]</h1>
         <div class="banner">
             <div class="conteudo">
                 <div class="banner-ti">
@@ -65,7 +64,7 @@
             </div>
         </div>
 
-        <form action="/Usuario/Comentar" method="post">
+        <form action="/Comentarios/Comentar" method="post">
 
             <div class="pppp">
                 <div class="mmmm">
@@ -79,7 +78,6 @@
                         <button type="submit">Enviar</button>
                         <br>
                         <br>
-                        @TempData["Mensagem"]
                     </div>
                 </div>
         </form>

@@ -47,20 +47,27 @@ namespace Senai.Checkpoint.Mvc.Controllers {
                 senha: form["senha"]
             );
 
+            //Busca o usuario pelo seu e-mail e senha
             UsuarioModel usuarioRetornado = UsuarioRepositorio.BuscarEmailSenha (usuario.Email, usuario.Senha);
 
+            //Verifica se o usuário existe
             if (usuarioRetornado != null) {
-                HttpContext.Session.SetString ("IdUsuario", usuarioRetornado.Email.ToString ());
+                //Caso usuário exista salva os dados(nome e email) na session
+                HttpContext.Session.SetString ("nomeUsuario", usuarioRetornado.Nome.ToString ());
+                HttpContext.Session.SetString ("emailUsuario", usuarioRetornado.Email.ToString ());
 
-                TempData["Mensagem"] = "Login realizado com sucesso!";
+                //Informa ao usuário que o login foi efetuado
+                TempData["Login"] = "Login realizado com sucesso!";
 
+                //Redireciona para a página de comentários
                 return RedirectToAction ("Comentar", "Comentarios");
 
             } else {
-
+                //Caso não exista informa ao usuário
                 ViewBag.Mensagem = "Acesso negado!";
             }
 
+            //Retorna a view de usuário
             return View ();
         }
 

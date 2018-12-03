@@ -2,10 +2,19 @@ using System;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Senai.Checkpoint.Mvc.Interfaces;
 using Senai.Checkpoint.Mvc.Models;
+using Senai.Checkpoint.Mvc.Repositorios;
 
 namespace Senai.Checkpoint.Mvc.Controllers {
     public class ComentariosController : Controller {
+
+        public IComentario ComentariosRepositorio { get; set; }
+
+        public ComentariosController () {
+
+            ComentariosRepositorio = new ComentariosRepositorio ();
+        }
 
         [HttpGet]
 
@@ -19,31 +28,28 @@ namespace Senai.Checkpoint.Mvc.Controllers {
 
         public IActionResult Comentar (IFormCollection form) {
 
-            ComentariosModel usuario = new ComentariosModel ();
-            usuario.ID = HttpContext.Session.GetInt32 ("idUsuario").Value;
-            usuario.Nome = HttpContext.Session.GetString ("nomeUsuario");
-            usuario.Email = HttpContext.Session.GetString ("emailUsuario");
-
-            ComentariosModel comentarios = new ComentariosModel ();
-
-            if (System.IO.File.Exists ("comentarios.csv")) {
-                String[] linhas = System.IO.File.ReadAllLines ("comentarios.csv");
-                comentarios.ID = linhas.Length + 1;
-            } else {
-                comentarios.ID = 1;
+            if (HttpContext.Session.GetString ("nomeUsuario") == null) {
+                return RedirectToAction ("Usuario", "Login");
             }
 
-            comentarios.Comentario = form["comentario"];
-            comentarios.DataCriacao = DateTime.Now;
+            String Nome = HttpContext.Session.GetString ("nomeUsuario");
+            String Email = HttpContext.Session.GetString ("emailUsuario");
 
-            using (StreamWriter sw = new StreamWriter ("comentarios.csv", true)) {
-                sw.WriteLine ($"{comentarios.ID};{comentarios.Nome};{comentarios.Email};{comentarios.Comentario};{comentarios.DataCriacao}");
-            }
+            ComentariosModel comentariosModel = new ComentariosModel (nome: Nome, email: Email, comentario: form["comentario"]);
+
+            ComentariosRepositorio.Comentar (comentariosModel);
 
             TempData["Mensagem"] = "Comentário enviado para aprovação.";
 
             return View ();
 
+        }
+
+        public IActionResult Listar () {
+
+            ViewData["Comentarios"] = ComentariosRepositorio.Listar ();
+
+            return View ();
         }
 
     }

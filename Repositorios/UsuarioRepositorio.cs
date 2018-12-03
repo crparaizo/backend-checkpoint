@@ -98,5 +98,9 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
             throw new System.NotImplementedException ();
         }
 
+        public UsuarioModel CompararSenha(string senha, string confirma)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

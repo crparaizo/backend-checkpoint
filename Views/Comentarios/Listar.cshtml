@@ -1,3 +1,11 @@
+@using System;
+@using System.IO;
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
+@using Senai.Checkpoint.Mvc.Interfaces;
+@using Senai.Checkpoint.Mvc.Models;
+@using Senai.Checkpoint.Mvc.Repositorios;
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -53,13 +61,16 @@
 
         <div class="quebra"></div>
 
-
+        @foreach(ComentariosModel comentario in ViewData["Comentarios"] as List<ComentariosModel> ) {
         <div class="quase-pai">
             <div class="quase1">
-                Nome: bla bla bla
+                Nome: @comentario.Nome
+                <br>
+                <br>
+                Email: @comentario.Email
             </div>
             <div class="quase2">
-                Data: bla
+                Data: @comentario.DataCriacao
             </div>
         </div>
 
@@ -68,60 +79,17 @@
                 <div>
                     <label for="">Comentário:
                         <br>
-                        <input type="text" placeholder="Insira sua mensagem...">
+                        <input type="text" placeholder="Insira sua mensagem..." value="@comentario.Comentario" disabled>
+                       
                     </label>
-                    <br>
-                    <br>
-                    <button type="submit">Enviar</button>
+                 
                 </div>
             </div>
+            
         </div>
+            
+        }
 
-        <div class="quase-pai">
-            <div class="quase1">
-                Nome: bla bla bla
-            </div>
-            <div class="quase2">
-                Data: bla
-            </div>
-        </div>
-
-        <div class="pppp">
-            <div class="mmmm">
-                <div>
-                    <label for="">Comentário:
-                        <br>
-                        <input type="text" placeholder="Insira sua mensagem...">
-                    </label>
-                    <br>
-                    <br>
-                    <button type="submit">Enviar</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="quase-pai">
-            <div class="quase1">
-                Nome: bla bla bla
-            </div>
-            <div class="quase2">
-                Data: bla
-            </div>
-        </div>
-
-        <div class="pppp">
-            <div class="mmmm">
-                <div>
-                    <label for="">Comentário:
-                        <br>
-                        <input type="text" placeholder="Insira sua mensagem...">
-                    </label>
-                    <br>
-                    <br>
-                    <button type="submit">Enviar</button>
-                </div>
-            </div>
-        </div>
 
 
         <div class="quebra"></div>

@@ -27,13 +27,22 @@ namespace Senai.Checkpoint.Mvc.Models {
             this.Comentario = comentario;
 
         }
+        public ComentariosModel (int id, string nome, string email, string comentario, DateTime data) { //DateTime para diferenciar parametros
+
+            this.ID = id;
+            this.Nome = nome;
+            this.Email = email;
+            this.Comentario = comentario;
+            
+
+        }
 
         public ComentariosModel (string nome, string email, string comentario) {
 
             this.Nome = nome;
             this.Email = email;
             this.Comentario = comentario;
-
+            this.DataCriacao = DateTime.Now;            
         }
 
     }

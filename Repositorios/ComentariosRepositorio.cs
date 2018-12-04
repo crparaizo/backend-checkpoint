@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Senai.Checkpoint.Mvc.Interfaces;
@@ -13,7 +14,7 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
             }
 
             using (StreamWriter sw = new StreamWriter ("comentarios.csv", true)) {
-                sw.WriteLine ($"{comentarios.ID};{comentarios.Nome};{comentarios.Email};{comentarios.Comentario}");
+                sw.WriteLine ($"{comentarios.ID};{comentarios.Nome};{comentarios.Email};{comentarios.Comentario};{DateTime.Now}");
             }
 
             return comentarios;
@@ -40,7 +41,8 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
                     id: int.Parse (Dados[0]),
                     nome: Dados[1],
                     email: Dados[2],
-                    comentario: Dados[3]
+                    comentario: Dados[3],
+                    data: DateTime.Parse( Dados[4])
                 );
 
                 lsComentarios.Add (comentarios);

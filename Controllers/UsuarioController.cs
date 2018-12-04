@@ -23,6 +23,12 @@ namespace Senai.Checkpoint.Mvc.Controllers {
         [HttpPost]
 
         public IActionResult Cadastro (IFormCollection form) {
+
+            if (form["senha"] != form["confirma"]) {
+                TempData["Erro"] = "Senhas não coincidem!!";
+                return View ();
+            }
+
             UsuarioModel usuarioModel = new UsuarioModel (nome: form["nome"], email: form["email"], senha: form["senha"]);
 
             UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio ();

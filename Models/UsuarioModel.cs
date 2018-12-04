@@ -11,6 +11,8 @@ namespace Senai.Checkpoint.Mvc.Models {
 
         public string Senha { get; set; }
 
+        public string Confirma { get; set; }
+
         public UsuarioModel () {
 
         }
@@ -37,6 +39,7 @@ namespace Senai.Checkpoint.Mvc.Models {
             this.Email = email;
             this.Senha = senha;
         }
+
     }
 
 }

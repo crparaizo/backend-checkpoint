@@ -1,0 +1,41 @@
+@using System;
+@using System.IO;
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
+@using Senai.Checkpoint.Mvc.Interfaces;
+@using Senai.Checkpoint.Mvc.Models;
+@using Senai.Checkpoint.Mvc.Repositorios;
+
+
+<h3>Listagem de usuários</h3>
+
+@TempData["Mensagem"]
+
+<table>
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>E-mail</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(ComentariosModel comentario in ViewData["Comentarios"] as List<ComentariosModel> ) {
+
+            <tr>
+                <td>
+                    @comentario.Nome
+                </td>
+                <td>
+                    @comentario.Email
+                </td>
+                <td>
+                    @comentario.Comentario
+                </td>
+                <td>
+                    <!-- <a href="/Comentarios/Aceitar?iD=@comentario.ID">Aceitar</a>
+                    <a href="/Comentarios/Rejeitar?iD=@comentario.ID">Rejeitar</a> -->
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>

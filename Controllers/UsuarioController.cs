@@ -59,8 +59,11 @@ namespace Senai.Checkpoint.Mvc.Controllers {
             //Verifica se o usuário existe
             if (usuarioRetornado != null) {
                 //Caso usuário exista salva os dados(nome e email) na session
-                HttpContext.Session.SetString ("nomeUsuario", usuarioRetornado.Nome.ToString ());
-                HttpContext.Session.SetString ("emailUsuario", usuarioRetornado.Email.ToString ());
+                HttpContext.Session.SetString ("nomeUsuario", usuarioRetornado.Nome);
+                HttpContext.Session.SetString ("emailUsuario", usuarioRetornado.Email);
+
+                // TESTANDO
+                HttpContext.Session.SetString ("idUsuario", usuarioRetornado.ID.ToString ());
 
                 //Informa ao usuário que o login foi efetuado
                 TempData["Login"] = "Login realizado com sucesso!";

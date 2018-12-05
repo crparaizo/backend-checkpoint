@@ -6,6 +6,7 @@ using Senai.Checkpoint.Mvc.Models;
 
 namespace Senai.Checkpoint.Mvc.Repositorios {
     public class ComentariosRepositorio : IComentario {
+
         public ComentariosModel Comentar (ComentariosModel comentarios) {
             if (File.Exists ("comentarios.csv")) {
                 comentarios.ID = System.IO.File.ReadAllLines ("comentarios.csv").Length + 1;
@@ -20,8 +21,23 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
             return comentarios;
         }
 
+        public ComentariosModel Administrar (ComentariosModel comentarios) {
+            if (File.Exists ("adm.csv")) {
+                comentarios.ID = System.IO.File.ReadAllLines ("adm.csv").Length + 1;
+            } else {
+                comentarios.ID = 1;
+            }
+
+            using (StreamWriter sw = new StreamWriter ("adm.csv", true)) {
+                sw.WriteLine ($"{comentarios.ID};{comentarios.Nome};{comentarios.Email};{comentarios.Comentario};{DateTime.Now}");
+            }
+
+            return comentarios;
+        }
+
         public List<ComentariosModel> Listar () => ListaCSVcm ();
 
+        public List<ComentariosModel> Mostrar () => ListaCSVcm ();
 
         private List<ComentariosModel> ListaCSVcm () {
 
@@ -42,7 +58,8 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
                     nome: Dados[1],
                     email: Dados[2],
                     comentario: Dados[3],
-                    data: DateTime.Parse( Dados[4])
+                    data: DateTime.Parse (Dados[4])
+
                 );
 
                 lsComentarios.Add (comentarios);
@@ -50,6 +67,32 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
 
             return lsComentarios;
         }
+
+        //Reverter coméntarios:
+
+        public string Reverse (string text) {
+
+            char[] contrario = text.ToCharArray ();
+
+            string reverse = String.Empty;
+            for (int i = contrario.Length - 1; i > -1; i--) {
+                reverse += contrario[i];
+            }
+            return reverse;
+
+        }
+
+        public ComentariosModel Aceitar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ComentariosModel Rejeitar()
+        {
+            throw new NotImplementedException();
+        }
+
+        //Fim reverter comentários
 
         // public ComentariosModel BuscarId (int Id) {
         //     string[] linhas = System.IO.File.ReadAllLines ("comentarios.csv");

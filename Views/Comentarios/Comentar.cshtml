@@ -1,3 +1,13 @@
+@using System;
+@using System.IO;
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
+@using Senai.Checkpoint.Mvc.Interfaces;
+@using Senai.Checkpoint.Mvc.Models;
+@using Senai.Checkpoint.Mvc.Repositorios;
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -51,16 +61,22 @@
 
         <div class="quebra"></div>
 
+
+        <!-- Conteúdo: Informações Comentário -->
+
+
+
+
         <div class="titulo">
             Comente!!!:
         </div>
 
         <div class="quase-pai">
             <div class="quase1">
-                Nome: bla bla bla
+                <p>Nome: @ViewBag.Nome</p>
             </div>
             <div class="quase2">
-                Data: bla
+                <p>Email: @ViewBag.Email</p>
             </div>
         </div>
 
@@ -81,6 +97,9 @@
                     </div>
                 </div>
         </form>
+
+        <!-- Fim do Conteúdo -->
+
 
         <!-- chat -->
 

@@ -11,7 +11,12 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
             if (File.Exists ("usuarios.csv")) {
                 usuario.ID = System.IO.File.ReadAllLines ("usuarios.csv").Length + 1;
             } else {
-                usuario.ID = 1;
+                usuario.ID = 2;
+
+                using (StreamWriter adm = new StreamWriter ("usuarios.csv", true)) {
+                    adm.WriteLine ($"{"1"};{"Administrador"};{"admin @carfel.com"};{"admin"}");
+                }
+
             }
 
             using (StreamWriter sw = new StreamWriter ("usuarios.csv", true)) {
@@ -88,14 +93,6 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
             }
 
             return null;
-        }
-
-        public UsuarioModel Aceitar () {
-            throw new System.NotImplementedException ();
-        }
-
-        public UsuarioModel Rejeitar () {
-            throw new System.NotImplementedException ();
         }
 
     }

@@ -12,9 +12,5 @@ namespace Senai.Checkpoint.Mvc.Interfaces {
 
         UsuarioModel BuscarEmailSenha (string email, string senha);
 
-        UsuarioModel Aceitar ();
-
-        UsuarioModel Rejeitar ();
-
     }
 }

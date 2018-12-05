@@ -61,51 +61,52 @@
 
         <div class="quebra"></div>
 
-        @foreach(ComentariosModel comentario in ViewData["Comentarios"] as List<ComentariosModel> ) {
-        <div class="quase-pai">
-            <div class="quase1">
-                Nome: @comentario.Nome
-                <br>
-                <br>
-                Email: @comentario.Email
-            </div>
-            <div class="quase2">
-                Data: @comentario.DataCriacao
-            </div>
-        </div>
 
-        <div class="pppp">
-            <div class="mmmm">
-                <div>
-                    <label for="">Comentário:
-                        <br>
-                        <input type="text" placeholder="Insira sua mensagem..." value="@comentario.Comentario" disabled>
-                       
-                    </label>
-                 
+        @foreach(ComentariosModel comentario in ViewData["Comentarios"] as List<ComentariosModel> ) {
+            <div class="quase-pai">
+                <div class="quase1">
+                    Nome: @comentario.Nome
+                    <br>
+                    <br>
+                    Email: @comentario.Email
+                </div>
+                <div class="quase2">
+                    Data: @comentario.DataCriacao
                 </div>
             </div>
-            
-        </div>
-            
-        }
 
+            <div class="pppp">
+                <div class="mmmm">
+                    <div>
+                        <label for="">Comentário:
+                            <br>
+                            <input type="text" placeholder="Insira sua mensagem..." value="@comentario.Comentario"
+                                disabled>
 
+                        </label>
 
-        <div class="quebra"></div>
+                    </div>
+                </div>
 
-        <div class="telefone">
-            <h2>Telefone: (11) 3273-5000</h2>
-        </div>
-
-        <div class="baixo">
-            <div class="endereco">
-                <h2>Endereço: Alameda Barão de Limeira, 889 -Santa Cecília, São Paulo-SP, 01202-001</h2>
             </div>
-            <div class="email">
-                <h2>Email: sac@carfel.com</h2>
+
+            }
+
+
+            <div class="quebra"></div>
+
+            <div class="telefone">
+                <h2>Telefone: (11) 3273-5000</h2>
             </div>
-        </div>
+
+            <div class="baixo">
+                <div class="endereco">
+                    <h2>Endereço: Alameda Barão de Limeira, 889 -Santa Cecília, São Paulo-SP, 01202-001</h2>
+                </div>
+                <div class="email">
+                    <h2>Email: sac@carfel.com</h2>
+                </div>
+            </div>
 
     </main>
 

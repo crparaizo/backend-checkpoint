@@ -19,21 +19,13 @@ namespace Senai.Checkpoint.Mvc.Models {
 
         }
 
-        public ComentariosModel (int id, string nome, string email, string comentario) {
+        public ComentariosModel (int id, string nome, string email, string comentario, DateTime data) {
 
             this.ID = id;
             this.Nome = nome;
             this.Email = email;
             this.Comentario = comentario;
-
-        }
-        public ComentariosModel (int id, string nome, string email, string comentario, DateTime data) { //DateTime para diferenciar parametros
-
-            this.ID = id;
-            this.Nome = nome;
-            this.Email = email;
-            this.Comentario = comentario;
-            
+            this.DataCriacao = data;
 
         }
 
@@ -42,7 +34,7 @@ namespace Senai.Checkpoint.Mvc.Models {
             this.Nome = nome;
             this.Email = email;
             this.Comentario = comentario;
-            this.DataCriacao = DateTime.Now;            
+
         }
 
     }

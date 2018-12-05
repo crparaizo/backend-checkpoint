@@ -82,14 +82,42 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
 
         }
 
-        public ComentariosModel Aceitar()
-        {
-            throw new NotImplementedException();
+        public void Aceitar (int id) {
+            //Abre o stream de leitura do arquivo
+            string[] linhas = File.ReadAllLines ("comentarios.csv");
+
+            //Lê cada registro no CSV
+            for (int i = 0; i < linhas.Length; i++) {
+                //Separa os dados da linha
+                string[] dadosDaLinha = linhas[i].Split (';');
+
+                if (id.ToString () == dadosDaLinha[0]) {
+                    linhas[i] = linhas[i];
+                    break;
+                }
+
+            }
+
+            File.WriteAllLines ("comentarios.csv", linhas);
         }
 
-        public ComentariosModel Rejeitar()
-        {
-            throw new NotImplementedException();
+        public void Rejeitar (int id) {
+            //Abre o stream de leitura do arquivo
+            string[] linhas = File.ReadAllLines ("comentarios.csv");
+
+            //Lê cada registro no CSV
+            for (int i = 0; i < linhas.Length; i++) {
+                //Separa os dados da linha
+                string[] dadosDaLinha = linhas[i].Split (';');
+
+                if (id.ToString () == dadosDaLinha[0]) {
+                    linhas[i] = "";
+                    break;
+                }
+
+            }
+
+            File.WriteAllLines ("comentarios.csv", linhas);
         }
 
         //Fim reverter comentários

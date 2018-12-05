@@ -1,3 +1,11 @@
+@using System;
+@using System.IO;
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
+@using Senai.Checkpoint.Mvc.Interfaces;
+@using Senai.Checkpoint.Mvc.Models;
+@using Senai.Checkpoint.Mvc.Repositorios;
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="/css/admin.css">
     <title>Admin</title>
 
 </head>
@@ -15,20 +23,20 @@
         <nav id="" class="menu">
             <ul>
                 <li>
-                    <a href="file:///D:/Senai-Desenvolvimento/Cartel-Design/home.html">Home</a>
+                    <a href="/Cartel-Design/home.html">Home</a>
                 </li>
                 <li>
-                    <a href="file:///D:/Senai-Desenvolvimento/Cartel-Design/empresa.html">Sobre a empresa</a>
+                    <a href="/Cartel-Design/empresa.html">Sobre a empresa</a>
                 </li>
                 <li>
-                    <a href="file:///D:/Senai-Desenvolvimento/Cartel-Design/contato.html">Contato</a>
+                    <a href="/Cartel-Design/contato.html">Contato</a>
                 </li>
                 <li>
-                    <a href="file:///D:/Senai-Desenvolvimento/Cartel-Design/faq.html">F.A.Q.?</a>
+                    <a href="/Cartel-Design/faq.html">F.A.Q.?</a>
                 </li>
 
                 <div class="busca">
-                    <a href="file:///D:/Senai-Desenvolvimento/Cartel-Design/faq.html">
+                    <a href="/Cartel-Design/faq.html">
                         <img src="/imagens/if_Search_Icon_743893.png" alt="Lupa">
                     </a>
 
@@ -59,15 +67,19 @@
 
         <div class="preto"></div>
 
+        @foreach(ComentariosModel comentario in ViewData["Avaliacao"] as List<ComentariosModel> ) {
+
 
         <div class="quase-pai">
             <div class="quase1">
-                Nome: bla bla bla
+                Nome: @comentario.Nome
             </div>
             <div class="quase2">
-                Data: bla
+                Data: @comentario.DataCriacao
             </div>
         </div>
+
+        }
 
         <div class="pppp">
             <div class="mmmm">
@@ -79,6 +91,8 @@
                     <br>
                     <br>
                     <button type="submit">Enviar</button>
+
+                    
                     <button class="aprovar" type="submit">Aprovar</button>
                     <button class="rejeitar" type="submit">Rejeitar</button>
                 </div>

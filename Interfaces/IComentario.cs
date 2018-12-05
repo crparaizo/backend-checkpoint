@@ -10,10 +10,9 @@ namespace Senai.Checkpoint.Mvc.Interfaces {
         ComentariosModel Administrar (ComentariosModel comentarios);
 
         List<ComentariosModel> Mostrar ();
+        void Aceitar (int id);
 
-        ComentariosModel Aceitar ();
-
-        ComentariosModel Rejeitar ();
+        void Rejeitar (int id);
 
         // ComentariosModel BuscarId (int Id);
 

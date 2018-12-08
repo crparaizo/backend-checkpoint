@@ -65,9 +65,6 @@ namespace Senai.Checkpoint.Mvc.Controllers {
                     HttpContext.Session.SetString ("nomeUsuario", usuarioRetornado.Nome);
                     HttpContext.Session.SetString ("emailUsuario", usuarioRetornado.Email);
 
-                    // TESTANDO
-                    HttpContext.Session.SetString ("idUsuario", usuarioRetornado.ID.ToString ());
-
                     //Informa ao usuário que o login foi efetuado
                     TempData["Login"] = "Login realizado com sucesso!";
 
@@ -76,8 +73,9 @@ namespace Senai.Checkpoint.Mvc.Controllers {
                 } else {
                     HttpContext.Session.SetString ("nomeUsuario", usuarioRetornado.Nome);
                     HttpContext.Session.SetString ("emailUsuario", usuarioRetornado.Email);
-                    
-                    return RedirectToAction ("Administrar", "Comentarios");
+
+                    //Action, Controller
+                    return RedirectToAction ("Listar", "Comentarios");
                 }
 
             } else {

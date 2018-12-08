@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Senai.Checkpoint.Mvc.Interfaces;
@@ -27,9 +29,6 @@ namespace Senai.Checkpoint.Mvc.Controllers {
 
                 UsuarioModel usuario = usuarioRep.BuscarId (idInt);
 
-                ViewBag.Nome = usuario.Nome;
-                ViewBag.Email = usuario.Email;
-                ViewBag.Mensagem = "Comentário enviado para aprovação.";
             }
 
             return View ();
@@ -56,42 +55,43 @@ namespace Senai.Checkpoint.Mvc.Controllers {
 
         public IActionResult Listar () {
 
-            ViewData["Comentarios"] = ComentariosRepositorio.Listar ();
+            String Email = HttpContext.Session.GetString ("emailUsuario");
+
+            if (Email == "admin@carfel.com") {
+
+                ViewData["Comentarios"] = ComentariosRepositorio.Listar ().OrderByDescending (x => x.DataCriacao);
+            }
+
+            return View ();
+        }
+
+        public IActionResult Aprovados () {
+
+            ViewData["Aprovados"] = ComentariosRepositorio.Aprovados ();
 
             return View ();
         }
 
         [HttpGet]
 
-        public IActionResult Administrar () {
+        public IActionResult Aprovar (int id) {
+            ComentariosRepositorio Comentario = new ComentariosRepositorio ();
+            Comentario.Aprovar (id);
 
-            return View ();
+            TempData["Aprovar"] = "Comentário aprovado!";
+
+            return RedirectToAction ("Comentarios", "Listar");
         }
 
-        [HttpPost]
+        [HttpGet]
 
-        public IActionResult Administrar (IFormCollection form) {
+        public IActionResult Rejeitar (int id) {
+            ComentariosRepositorio Comentario = new ComentariosRepositorio ();
+            Comentario.Rejeitar (id);
 
-            if (HttpContext.Session.GetString ("nomeUsuario") != "Adminitrador") {
-                return RedirectToAction ("Usuario", "Login");
-            }
+            TempData["Rejeitar"] = "Comentário rejeitado!";
 
-            String Nome = HttpContext.Session.GetString ("nomeUsuario");
-
-            String Email = HttpContext.Session.GetString ("emailUsuario");
-
-            ComentariosModel comentariosModel = new ComentariosModel (nome: Nome, email: Email, comentario: form["comentario"]);
-
-            ComentariosRepositorio.Administrar (comentariosModel);
-
-            return View ();
-        }
-
-        public IActionResult Mostrar () {
-
-            ViewData["Avaliacao"] = ComentariosRepositorio.Mostrar ();
-
-            return View ();
+            return RedirectToAction ("Comentarios", "Listar");
         }
 
     }

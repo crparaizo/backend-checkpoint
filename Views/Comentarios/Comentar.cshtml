@@ -65,18 +65,16 @@
         <!-- Conteúdo: Informações Comentário -->
 
 
-
-
         <div class="titulo">
             Comente!!!:
         </div>
 
         <div class="quase-pai">
             <div class="quase1">
-                <p>Nome: @ViewBag.Nome</p>
+                <p>Nome: @Context.Session.GetString("nomeUsuario")</p>
             </div>
             <div class="quase2">
-                <p>Email: @ViewBag.Email</p>
+                <p>Email: @Context.Session.GetString("emailUsuario")</p>
             </div>
         </div>
 

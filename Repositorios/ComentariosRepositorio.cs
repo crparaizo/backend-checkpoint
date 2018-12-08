@@ -15,21 +15,7 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
             }
 
             using (StreamWriter sw = new StreamWriter ("comentarios.csv", true)) {
-                sw.WriteLine ($"{comentarios.ID};{comentarios.Nome};{comentarios.Email};{comentarios.Comentario};{DateTime.Now}");
-            }
-
-            return comentarios;
-        }
-
-        public ComentariosModel Administrar (ComentariosModel comentarios) {
-            if (File.Exists ("adm.csv")) {
-                comentarios.ID = System.IO.File.ReadAllLines ("adm.csv").Length + 1;
-            } else {
-                comentarios.ID = 1;
-            }
-
-            using (StreamWriter sw = new StreamWriter ("adm.csv", true)) {
-                sw.WriteLine ($"{comentarios.ID};{comentarios.Nome};{comentarios.Email};{comentarios.Comentario};{DateTime.Now}");
+                sw.WriteLine ($"{comentarios.ID};{comentarios.Nome};{comentarios.Email};{comentarios.Comentario};{DateTime.Now};{false}");
             }
 
             return comentarios;
@@ -37,11 +23,13 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
 
         public List<ComentariosModel> Listar () => ListaCSVcm ();
 
-        public List<ComentariosModel> Mostrar () => ListaCSVcm ();
-
         private List<ComentariosModel> ListaCSVcm () {
 
             List<ComentariosModel> lsComentarios = new List<ComentariosModel> ();
+
+            if (!File.Exists ("comentarios.csv")) {
+                return lsComentarios;
+            }
 
             string[] linhas = File.ReadAllLines ("comentarios.csv");
 
@@ -58,15 +46,59 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
                     nome: Dados[1],
                     email: Dados[2],
                     comentario: Dados[3],
-                    data: DateTime.Parse (Dados[4])
+                    data: DateTime.Parse (Dados[4]),
+                    status: bool.Parse (Dados[5])
 
                 );
 
                 lsComentarios.Add (comentarios);
+             
             }
 
             return lsComentarios;
         }
+
+        public List<ComentariosModel> Aprovados () {
+
+            List<ComentariosModel> ComentariosAprovados = new List<ComentariosModel> ();
+
+            if (!File.Exists ("comentarios.csv")) {
+                return ComentariosAprovados;
+            }
+
+            string[] linhas = File.ReadAllLines ("comentarios.csv");
+
+            foreach (string linha in linhas) {
+
+                if (string.IsNullOrEmpty (linha)) {
+                    continue;
+                }
+
+                string[] Dados = linha.Split (";");
+
+                ComentariosModel comentarios = new ComentariosModel (
+
+                    id: int.Parse (Dados[0]),
+                    nome: Dados[1],
+                    email: Dados[2],
+                    comentario: Dados[3],
+                    data: DateTime.Parse (Dados[4]),
+                    status: bool.Parse (Dados[5])
+                );
+
+                if (comentarios.Status == true) {
+
+                    ComentariosAprovados.Add (comentarios);
+
+                }
+
+            }
+
+            return ComentariosAprovados;
+
+        }
+
+        // Para sair do login: dar remove no id, nome e email da sessão
 
         //Reverter coméntarios:
 
@@ -79,10 +111,11 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
                 reverse += contrario[i];
             }
             return reverse;
-
         }
 
-        public void Aceitar (int id) {
+        //Fim reverter comentários
+
+        public void Aprovar (int id) {
             //Abre o stream de leitura do arquivo
             string[] linhas = File.ReadAllLines ("comentarios.csv");
 
@@ -92,13 +125,14 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
                 string[] dadosDaLinha = linhas[i].Split (';');
 
                 if (id.ToString () == dadosDaLinha[0]) {
-                    linhas[i] = linhas[i];
+                    linhas[i] = ($"{dadosDaLinha[0]}{dadosDaLinha[1]}{dadosDaLinha[2]}{dadosDaLinha[3]}{dadosDaLinha[4]}{true}");
                     break;
                 }
 
             }
 
             File.WriteAllLines ("comentarios.csv", linhas);
+
         }
 
         public void Rejeitar (int id) {
@@ -110,54 +144,17 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
                 //Separa os dados da linha
                 string[] dadosDaLinha = linhas[i].Split (';');
 
+                if (string.IsNullOrEmpty (linhas[i])) {
+                    continue;
+                }
+
                 if (id.ToString () == dadosDaLinha[0]) {
-                    linhas[i] = "";
+                    linhas[i] = ($"{dadosDaLinha[0]}{dadosDaLinha[1]}{dadosDaLinha[2]}{dadosDaLinha[3]}{dadosDaLinha[4]}{false}");
                     break;
                 }
 
             }
 
-            File.WriteAllLines ("comentarios.csv", linhas);
         }
-
-        //Fim reverter comentários
-
-        // public ComentariosModel BuscarId (int Id) {
-        //     string[] linhas = System.IO.File.ReadAllLines ("comentarios.csv");
-
-        //     for (int i = 0; i < linhas.Length; i++) {
-        //         if (string.IsNullOrEmpty (linhas[i])) {
-        //             continue;
-        //         }
-
-        //         string[] dados = linhas[i].Split (";");
-
-        //         if (dados[0] == Id.ToString ()) {
-        //             ComentariosModel comentarios = new ComentariosModel (
-        //                 id: int.Parse (dados[0]),
-        //                 nome: dados[1],
-        //                 email: dados[2],
-        //                 comentario: dados[3]
-        //             );
-
-        //             return comentarios;
-        //         }
-        //     }
-
-        //     return null;
-        // }
-
-        // public ComentariosModel BuscarEmail (string email, string senha) {
-        //     List<ComentariosModel> Cadastrados = ListaCSVcm ();
-
-        //     foreach (ComentariosModel comentarios in Cadastrados) {
-        //         if (comentarios.Email == email) {
-        //             return comentarios;
-        //         }
-        //     }
-
-        //     return null;
-        // }
-
     }
 }

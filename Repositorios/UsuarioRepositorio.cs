@@ -14,7 +14,7 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
                 usuario.ID = 2;
 
                 using (StreamWriter adm = new StreamWriter ("usuarios.csv", true)) {
-                    adm.WriteLine ($"{"1"};{"Administrador"};{"admin @carfel.com"};{"admin"}");
+                    adm.WriteLine ($"{"1"};{"Administrador"};{"admin@carfel.com"};{"admin"}");
                 }
 
             }

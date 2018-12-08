@@ -62,7 +62,7 @@
         <div class="quebra"></div>
 
 
-        @foreach(ComentariosModel comentario in ViewData["Comentarios"] as List<ComentariosModel> ) {
+        @foreach(ComentariosModel comentario in ViewData["Aprovados"] as List<ComentariosModel> ) {
             <div class="quase-pai">
                 <div class="quase1">
                     Nome: @comentario.Nome
@@ -72,7 +72,6 @@
                 </div>
                 <div class="quase2">
                     Data: @comentario.DataCriacao
-
                 </div>
             </div>
 
@@ -85,9 +84,6 @@
                                 disabled>
 
                         </label>
-
-                        <a href="/Comentarios/Aprovar?id=@comentario.ID" class="aprovar">Aprovar</a>  @TempData["Aprovar"]
-                        <a href="/Comentarios/Rejeitar?id=@comentario.ID" class="rejeitar">Rejeitar</a> @TempData["Rejeitar"]
 
                     </div>
                 </div>

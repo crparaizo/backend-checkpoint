@@ -101,21 +101,6 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
 
         // Para sair do login: dar remove no id, nome e email da sessão
 
-        //Reverter coméntarios:
-
-        public string Reverse (string text) {
-
-            char[] contrario = text.ToCharArray ();
-
-            string reverse = String.Empty;
-            for (int i = contrario.Length - 1; i > -1; i--) {
-                reverse += contrario[i];
-            }
-            return reverse;
-        }
-
-        //Fim reverter comentários
-
         public void Aprovar (int id) {
             //Abre o stream de leitura do arquivo
             string[] linhas = File.ReadAllLines ("comentarios.csv");
@@ -133,7 +118,6 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
             }
 
             File.WriteAllLines ("comentarios.csv", linhas);
-
         }
 
         public void Rejeitar (int id) {
@@ -142,7 +126,7 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
 
             //Lê cada registro no CSV
             for (int i = 0; i < linhas.Length; i++) {
-                //Separa os dados da linha
+                //Separa os dados da linha  
                 string[] dadosDaLinha = linhas[i].Split (';');
 
                 if (id.ToString () == dadosDaLinha[0]) {
@@ -153,7 +137,6 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
             }
 
             File.WriteAllLines ("comentarios.csv", linhas);
-
         }
 
     }

@@ -90,13 +90,15 @@
                         </label>
                         <br>
                         <br>
-                        <button type="submit">Enviar</button>
+                        <button class="butt" type="submit">Enviar</button>
                         <br>
                         <br>
                         <a href="/Usuario/Login">Já possui cadastro? CLIQUE AQUI!</a>
                         <br>
                         <br>
-                        @TempData["Erro"]
+                        <span class="candida-erro">
+                            @TempData["Erro"]
+                        </span>
                         @TempData["Mensagem"]
                     </div>
                 </div>

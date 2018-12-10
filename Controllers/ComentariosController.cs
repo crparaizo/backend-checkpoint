@@ -62,7 +62,6 @@ namespace Senai.Checkpoint.Mvc.Controllers {
                 ViewData["Comentarios"] = ComentariosRepositorio.Listar ();
 
                 // .OrderByDescending (x => x.DataCriacao)
-
                 
             }
 

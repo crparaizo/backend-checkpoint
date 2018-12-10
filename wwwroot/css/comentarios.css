@@ -76,12 +76,18 @@
 }
 
 .banner h1{
-    font-size: 80px;
+    font-size: 60px;
     justify-content: center;
     align-items: center;
     color: white;
     letter-spacing: 20px;
     padding-bottom: 20px;
+}
+
+.banner h2{
+    color: darkgrey;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner-img img{
@@ -101,11 +107,9 @@
 }
 
 .quase-pai{
+    padding: 2vh 25vh;
     display: flex;
-}
-
-.quase2{
-    padding-left: 3vw;
+    justify-content: space-around;
 }
 
 .mmmm{
@@ -114,7 +118,7 @@
     text-align: center;
     width: auto;
     height: auto;
-    padding: 10vh;
+    padding: 5vh 0 8vh 0;
 }
 
 .mmmm input{
@@ -136,6 +140,12 @@
 .pppp{
     display: flex;
     justify-content: center;
+}
+
+.division{
+    width: 100%;
+    height: 1vh;;
+    background: lightgoldenrodyellow;
 }
 
 .baixo{
@@ -174,6 +184,21 @@
     }
     .mmmm{
         padding: 5vh;
+    }
+
+    .quase-pai{
+        padding: 2vh 25vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    .cnome{
+        padding-bottom: 1vh;
+    }
+    .cemail{
+        padding-bottom: 1vh;
     }
 
 }
@@ -262,7 +287,17 @@
 
     .quebra{
         height: 5vh;
-    }       
+    }     
+    
+    .cnome{
+        font-size: 10px;
+    }
+    .cemail{
+        font-size: 10px;
+    }.ccoment{
+        font-size: 10px;
+    }
+
 }
 
 @media screen and (max-width: 520px) { 

@@ -64,13 +64,13 @@
 
         @foreach(ComentariosModel comentario in ViewData["Aprovados"] as List<ComentariosModel> ) {
             <div class="quase-pai">
-                <div class="quase1">
+                <div class="cnome">
                     Nome: @comentario.Nome
-                    <br>
-                    <br>
+                </div>
+                <div class="cemail">
                     Email: @comentario.Email
                 </div>
-                <div class="quase2">
+                <div class="ccoment">
                     Data: @comentario.DataCriacao
                 </div>
             </div>
@@ -89,6 +89,8 @@
                 </div>
 
             </div>
+
+            <div class="division"></div>
 
             }
 

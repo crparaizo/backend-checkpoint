@@ -76,12 +76,13 @@
 }
 
 .banner h1{
-    font-size: 80px;
+    font-size:60px;
     justify-content: center;
     align-items: center;
     color: white;
     letter-spacing: 20px;
     padding-bottom: 20px;
+    line-height: 12vh;
 }
 
 .banner-img img{
@@ -96,8 +97,8 @@
 
 .titulo{
     text-align: center;
-    padding: 3vh;
-    font-size: 25px;
+    padding: 2vh 0 0 0;
+    font-size: 8vh;
 }
 
 .mmmm{
@@ -106,7 +107,7 @@
     text-align: center;
     width: auto;
     height: auto;
-    padding: 10vh;
+    padding: 5vh 0 6vh 0;
 }
 
 .mmmm input,textarea{
@@ -116,6 +117,12 @@
 
 .mmmm input{
     height: 5vh;
+}
+
+.butt{
+    width: 5vw;
+    height: 5vh;
+    margin-bottom: 2vh;
 }
 
 .telefone{

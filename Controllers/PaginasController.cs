@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Senai.Checkpoint.Mvc.Controllers {
     public class PaginasController : Controller {
-        
+
         [HttpGet]
         public IActionResult Home () {
             return View ();

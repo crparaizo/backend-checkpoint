@@ -130,123 +130,6 @@
     justify-content: center;
 }
 
-/* começo chat */
-
-.chat-chat h2{
-    text-align: center;
-    background: coral;
-
-}
-
-.flex-container{
-    display: flex;    
-}
-
-#chat .flex-container > *{
-    flex: 1;
-}
-
-#chat{
-    margin: 10vh 0 0 35vh;
-    height: 60vh;
-    width: 30vw;
-    text-align: justify;
-    border: solid 1px black;
-
-    background-color: lightgray;
-    bottom: 30px;
-    right: 0;
-}
-
-#chat header{
-    width: 100%;
-    height: 60px;
-    background: lightcyan;
-    padding-top: .2em;
-}
-
-#chat .perfil{
-    flex: 4;
-    align-items: center;
-}
-
-#chat .acoes{
-    flex: 1;
-}
-
-#chat nav{
-    align-items: center;
-}
-
-#chat .perfil-img{
-    flex: 1;
-    width: 100%;
-    height: 100%;
-}
-#chat .perfil-dados{
-    flex: 4;
-}
-
-#chat .perfil-img img{
-    width: 60%;
-    height: 60%;
-    border-radius: 50%;
-    margin-left: 10px;
-}
-
-#chat .perfil-nome{
-    font-weight: 600;
-}
-
-#chat .perfil-status{
-    color: green;
-    text-shadow: 0 0 1px green;
-}
-
-#chat main{
-    width: 100%;
-    height: 40vh;
-    overflow-y: scroll;
-    flex-direction: column;
-}
-
-#chat .chat-msg{
-    width: 80%;
-    background: floralwhite;
-    border-radius: 20px;
-    margin: 1rem;
-    padding: 0.5rem;
-}
-
-#chat .chat-msg-enviada{
-    align-self: flex-end;
-    background-color: aliceblue;
-}
-
-#chat footer{
-    height: 7.6vh;
-    width: 100%;
-    background: lightcyan;
-    align-items: center;
-    text-align: center;
-}
-
-#chat footer form{
-    flex: 6 !important;
-}
-
-#chat form textarea{
-    width: 50%;
-    height: 35px;
-    resize: none;
-}
-
-#chat footer i{
-    flex: 1;
-}
-
-/* fim chat */
-
 .baixo{
     display: flex;
     height: auto;
@@ -285,24 +168,12 @@
     .mmmm{
         padding: 5vh;
     }
-
-    #chat{
-        margin: 0 0 9vh 33%;
-        height: auto;
-        width: 400px;
-    }
 }
 
 @media screen and (max-width: 1050px) {
 
     .endereco{
         width: 45vw;
-    }
-
-    #chat{
-        margin: 0 0 9vh 33%;
-        height: auto;
-        width: 400px;
     }
 }
 
@@ -311,13 +182,6 @@
     .endereco{
         margin-right: 15vh;
         width: auto;
-    }
-
-    #chat{
-        margin: 0 0 9vh 33%;
-        height: auto;
-        width: 400px;
-        justify-items: center;    
     }
 }
 

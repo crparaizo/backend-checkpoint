@@ -12,6 +12,8 @@ namespace Senai.Checkpoint.Mvc.Interfaces {
         void Rejeitar (int id);
 
         List<ComentariosModel> Aprovados ();
-        
+
+        void Deslogar (int id);
+
     }
 }

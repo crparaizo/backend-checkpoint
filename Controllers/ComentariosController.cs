@@ -39,7 +39,7 @@ namespace Senai.Checkpoint.Mvc.Controllers {
         public IActionResult Comentar (IFormCollection form) {
 
             if (HttpContext.Session.GetString ("nomeUsuario") == null) {
-                return RedirectToAction ("Usuario", "Login");
+                return RedirectToAction ("Login", "Usuario");
             }
 
             String Nome = HttpContext.Session.GetString ("nomeUsuario");
@@ -59,7 +59,11 @@ namespace Senai.Checkpoint.Mvc.Controllers {
 
             if (Email == "admin@carfel.com") {
 
-                ViewData["Comentarios"] = ComentariosRepositorio.Listar ().OrderByDescending (x => x.DataCriacao);
+                ViewData["Comentarios"] = ComentariosRepositorio.Listar ();
+
+                // .OrderByDescending (x => x.DataCriacao)
+
+                
             }
 
             return View ();
@@ -80,7 +84,7 @@ namespace Senai.Checkpoint.Mvc.Controllers {
 
             TempData["Aprovar"] = "Comentário aprovado!";
 
-            return RedirectToAction ("Comentarios", "Listar");
+            return RedirectToAction ("Listar", "Comentarios");
         }
 
         [HttpGet]
@@ -91,7 +95,22 @@ namespace Senai.Checkpoint.Mvc.Controllers {
 
             TempData["Rejeitar"] = "Comentário rejeitado!";
 
-            return RedirectToAction ("Comentarios", "Listar");
+            return RedirectToAction ("Listar", "Comentarios");
+        }
+
+        [HttpGet]
+
+        public IActionResult Deslogar (int id) {
+
+            ComentariosRepositorio User = new ComentariosRepositorio ();
+            User.Deslogar (id);
+            
+            HttpContext.Session.Remove ("nomeUsuario");
+            HttpContext.Session.Remove ("emailUsuario");
+
+            TempData["Deslogar"] = "Saindo";
+
+            return RedirectToAction ("Login", "Usuario");
         }
 
     }

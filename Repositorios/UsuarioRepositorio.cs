@@ -82,7 +82,7 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
 
             return null;
         }
-
+        
         public UsuarioModel BuscarEmailSenha (string email, string senha) {
             List<UsuarioModel> Cadastrados = ListaCSV ();
 

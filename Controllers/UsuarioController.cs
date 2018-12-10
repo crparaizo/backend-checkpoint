@@ -61,7 +61,7 @@ namespace Senai.Checkpoint.Mvc.Controllers {
 
                 if (usuarioRetornado.Email != "admin@carfel.com") {
 
-                    //Caso usuário exista salva os dados(nome e email) na session
+                    //Caso usuário exista salva os dados(id,nome e email) na session
                     HttpContext.Session.SetString ("nomeUsuario", usuarioRetornado.Nome);
                     HttpContext.Session.SetString ("emailUsuario", usuarioRetornado.Email);
 
@@ -80,7 +80,7 @@ namespace Senai.Checkpoint.Mvc.Controllers {
 
             } else {
                 //Caso não exista informa ao usuário
-                ViewBag.Mensagem = "Acesso negado!";
+                 TempData["Erro"] = "Usuário e/ou senha incorretos";
             }
 
             //Retorna a view de usuário

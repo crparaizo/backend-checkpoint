@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Senai.Checkpoint.Mvc.Interfaces;
 using Senai.Checkpoint.Mvc.Models;
 
@@ -52,7 +53,7 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
                 );
 
                 lsComentarios.Add (comentarios);
-             
+
             }
 
             return lsComentarios;
@@ -125,7 +126,7 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
                 string[] dadosDaLinha = linhas[i].Split (';');
 
                 if (id.ToString () == dadosDaLinha[0]) {
-                    linhas[i] = ($"{dadosDaLinha[0]}{dadosDaLinha[1]}{dadosDaLinha[2]}{dadosDaLinha[3]}{dadosDaLinha[4]}{true}");
+                    linhas[i] = ($"{dadosDaLinha[0]};{dadosDaLinha[1]};{dadosDaLinha[2]};{dadosDaLinha[3]};{dadosDaLinha[4]};{true}");
                     break;
                 }
 
@@ -144,17 +145,32 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
                 //Separa os dados da linha
                 string[] dadosDaLinha = linhas[i].Split (';');
 
-                if (string.IsNullOrEmpty (linhas[i])) {
-                    continue;
-                }
-
                 if (id.ToString () == dadosDaLinha[0]) {
-                    linhas[i] = ($"{dadosDaLinha[0]}{dadosDaLinha[1]}{dadosDaLinha[2]}{dadosDaLinha[3]}{dadosDaLinha[4]}{false}");
+                    linhas[i] = ($"{dadosDaLinha[0]};{dadosDaLinha[1]};{dadosDaLinha[2]};{dadosDaLinha[3]};{dadosDaLinha[4]};{false}");
                     break;
                 }
 
             }
 
+            File.WriteAllLines ("comentarios.csv", linhas);
+
         }
+        public void Deslogar (int id) {
+            //Abre o stream de leitura do arquivo
+            string[] linhas = File.ReadAllLines ("usuarios.csv");
+
+            //Lê cada registro no CSV
+            for (int i = 0; i < linhas.Length; i++) {
+                //Separa os dados da linha
+                string[] info = linhas[i].Split (';');
+
+                if (id.ToString () == info[0]) {
+                    linhas[i] = ($"{info[0]};{info[1]};{info[2]};{info[3]};{info[4]};{info[5]}");
+                    break;
+                }
+
+            }
+        }
+
     }
 }

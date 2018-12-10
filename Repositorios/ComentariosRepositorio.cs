@@ -95,7 +95,7 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
 
             }
 
-            return ComentariosAprovados;
+            return ComentariosAprovados.OrderBy (x => x.DataCriacao).Reverse ().ToList ();
 
         }
 
@@ -154,22 +154,6 @@ namespace Senai.Checkpoint.Mvc.Repositorios {
 
             File.WriteAllLines ("comentarios.csv", linhas);
 
-        }
-        public void Deslogar (int id) {
-            //Abre o stream de leitura do arquivo
-            string[] linhas = File.ReadAllLines ("usuarios.csv");
-
-            //Lê cada registro no CSV
-            for (int i = 0; i < linhas.Length; i++) {
-                //Separa os dados da linha
-                string[] info = linhas[i].Split (';');
-
-                if (id.ToString () == info[0]) {
-                    linhas[i] = ($"{info[0]};{info[1]};{info[2]};{info[3]};{info[4]};{info[5]}");
-                    break;
-                }
-
-            }
         }
 
     }

@@ -94,5 +94,16 @@ namespace Senai.Checkpoint.Mvc.Controllers {
             return View ();
         }
 
+        
+        [HttpGet]
+
+        public IActionResult Deslogar () {
+
+            HttpContext.Session.Remove("nomeUsuario");
+            HttpContext.Session.Remove("emailUsuario");
+
+            return RedirectToAction ("Login");
+        }
+
     }
 }

@@ -98,20 +98,5 @@ namespace Senai.Checkpoint.Mvc.Controllers {
             return RedirectToAction ("Listar", "Comentarios");
         }
 
-        [HttpGet]
-
-        public IActionResult Deslogar (int id) {
-
-            ComentariosRepositorio User = new ComentariosRepositorio ();
-            User.Deslogar (id);
-            
-            HttpContext.Session.Remove ("nomeUsuario");
-            HttpContext.Session.Remove ("emailUsuario");
-
-            TempData["Deslogar"] = "Saindo";
-
-            return RedirectToAction ("Login", "Usuario");
-        }
-
     }
 }

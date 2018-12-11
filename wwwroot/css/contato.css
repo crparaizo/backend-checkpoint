@@ -94,6 +94,12 @@
     background: #1DB4D8;
 }
 
+.titulo{
+    text-align: center;
+    padding: 2vh 0 0 0;
+    font-size: 5vh;
+}
+
 .mmmm{
     display: flex;
     flex-direction: column;
@@ -280,6 +286,17 @@
         margin: 0 0 9vh 33%;
         height: auto;
         width: 400px;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+
+    #chat{
+        display: none;
+    }
+
+    .titulo{
+        font-size: 3.5vh;
     }
 }
 

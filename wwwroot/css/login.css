@@ -178,6 +178,10 @@
     .endereco{
         width: 45vw;
     }
+
+    .butt{
+        width: 8vw;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -256,7 +260,11 @@
 
     .quebra{
         height: 5vh;
-    }       
+    }    
+    
+    .butt{
+        width: 10vw;
+    }
 }
 
 @media screen and (max-width: 520px) { 
@@ -264,5 +272,9 @@
     .banner h1{
         font-size: 25px;
         line-height: 8vh;
+    }
+
+    .butt{
+        width: 14vw;
     }
 }

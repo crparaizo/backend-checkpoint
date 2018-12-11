@@ -287,6 +287,14 @@
     .direita p{
         padding: 5vh;
     }
+
+    .mais nav{
+        flex-direction: column;
+    }
+
+    .mais nav a{
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 1300px) {
@@ -306,6 +314,22 @@
     .direita p{
         padding: 6vh;
     }
+
+    .video{
+        display: none;
+    }
+
+    .contato{
+        align-items: center;
+    }
+
+    .baixo{
+        display: flex;
+        height: auto;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 1100px) {
@@ -320,6 +344,10 @@
     .funcionalidades p{
         border: 1px black solid;
         display: none;
+    }
+
+    .tabela{
+        flex-direction: column;
     }
 }
 
@@ -351,6 +379,10 @@
         display: flex;
         justify-content: space-between;
         width: 80%;
+    }
+
+    .planos h2{
+        font-size: 45px;
     }
 }
 
@@ -402,6 +434,14 @@
     .banner h1{
         font-size: 45px;
         line-height: 12vh;
+    }
+
+    .planos h2{
+        font-size: 39px;
+    }
+
+    .mais nav a{
+        font-size: 18px;
     }
 }
 

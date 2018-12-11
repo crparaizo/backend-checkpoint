@@ -257,6 +257,11 @@
         width: auto;
         padding: 0 0 5vh 0;
     }
+
+    .mmmm input{
+        width: 400px;
+        height: 30vh;
+    }
 }
 
 @media screen and (max-width: 610px) { 
@@ -279,20 +284,13 @@
         height: 72vh;
     }
 
-    .quebra{
-        height: 5vh;
-    }     
-    
-    .cnome{
-        font-size: 10px;
-    }
-    .cemail{
-        font-size: 10px;
-    }
-    .ccoment{
-        font-size: 10px;
+    .quase-pai{
+        padding: 2vh 0;
     }
 
+    .quebra{
+        height: 5vh;
+    }  
 }
 
 @media screen and (max-width: 520px) { 
@@ -300,5 +298,10 @@
     .banner h1{
         font-size: 25px;
         line-height: 8vh;
+    }
+
+    .mmmm input{
+        width: 300px;
+        height: 20vh;
     }
 }

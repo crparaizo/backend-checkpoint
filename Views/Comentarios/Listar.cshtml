@@ -60,6 +60,10 @@
         </div>
 
         <div class="quebra"></div>
+        <div class="admin">
+            <a href="/Usuario/Deslogar">Sair</a>
+        </div>
+        <div class="quebra"></div>
 
 
         @foreach(ComentariosModel comentario in ViewData["Comentarios"] as List<ComentariosModel> ) {
@@ -67,7 +71,7 @@
                 <div class="lnome">
                     Nome: @comentario.Nome
                 </div>
-                <div class="lemail">                        
+                <div class="lemail">
                     Email: @comentario.Email
                 </div>
                 <div class="ldata">
@@ -82,17 +86,16 @@
                             <br>
                             <input type="text" placeholder="Insira sua mensagem..." value="@comentario.Comentario"
                                 disabled>
-
                         </label>
                         <br>
                         <br>
                         <div class="status">
-                        <a href="/Comentarios/Aprovar?id=@comentario.ID" class="aprovar">Aprovar</a>  
-                        @TempData["Aprovar"]
-                        <br> 
-                        <a href="/Comentarios/Rejeitar?id=@comentario.ID" class="rejeitar">Rejeitar</a>
-                        @TempData["Rejeitar"]
-                        <br> 
+                            <a href="/Comentarios/Aprovar?id=@comentario.ID" class="aprovar">Aprovar</a>
+                            @TempData["Aprovar"]
+                            <br>
+                            <a href="/Comentarios/Rejeitar?id=@comentario.ID" class="rejeitar">Rejeitar</a>
+                            @TempData["Rejeitar"]
+                            <br>
                         </div>
                         <br>
                         <br>
@@ -104,6 +107,11 @@
             <div class="division"></div>
 
             }
+
+            <div class="quebra"></div>
+            <div class="admin">
+                <a href="/Usuario/Deslogar">Sair</a>
+            </div>
 
 
             <div class="quebra"></div>

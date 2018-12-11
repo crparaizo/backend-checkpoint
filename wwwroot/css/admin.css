@@ -100,6 +100,13 @@
     background: #1DB4D8;
 }
 
+.admin{
+    display: flex;
+    justify-content: center;
+    font-size: 3vh;
+    background-color: lightcyan;
+}
+
 .preto{
     width: 100%;
     height: 1vh;;
@@ -200,6 +207,21 @@
     .endereco{
         width: 45vw;
     }
+
+    .quase-pai{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .lnome{
+        padding: 1vh 0;
+    }
+    .email{
+        padding: 1vh 0;
+    }
+    .ldata{
+        padding: 1vh 0 0 0;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -254,6 +276,11 @@
         width: auto;
         padding: 0 0 5vh 0;
     }
+
+    .mmmm input{
+        width: 400px;
+        height: 30vh;
+    }
 }
 
 @media screen and (max-width: 610px) { 
@@ -278,7 +305,16 @@
 
     .quebra{
         height: 5vh;
-    }       
+    }   
+    
+    .mmmm input{
+        width: 300px;
+        height: 20vh;
+    }
+
+    .quase-pai{
+        padding: 2vh 0;
+    }
 }
 
 @media screen and (max-width: 520px) { 

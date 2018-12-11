@@ -129,10 +129,6 @@
 
 }
 
-/* .mmmm input{
-    height: 40vh;
-} */
-
 .mmmm p{
     padding-bottom: 3.5vh;
 }
@@ -301,10 +297,6 @@
 }
 
 
-
-
-
-
 @media screen and (max-width: 1200px) {
 
     .pppp{
@@ -332,6 +324,14 @@
         margin: 0 0 9vh 33%;
         height: auto;
         width: 400px;
+    }
+
+    .butt{
+        width: 8vw;
+    }
+
+    .mmmm a{
+        font-size: 2.5vh;
     }
 }
 
@@ -394,6 +394,11 @@
         width: auto;
         padding: 0 0 5vh 0;
     }
+
+    .mmmm input{
+        width: 400px;
+        height: 30vh;
+    }
 }
 
 @media screen and (max-width: 610px) { 
@@ -418,7 +423,16 @@
 
     .quebra{
         height: 5vh;
-    }       
+    }  
+    
+    .mmmm input{
+        width: 300px;
+        height: 20vh;
+    }
+
+    .butt{
+        width: 12vw;
+    }
 }
 
 @media screen and (max-width: 520px) { 

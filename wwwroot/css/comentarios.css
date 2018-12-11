@@ -124,9 +124,6 @@
 .mmmm input{
     width: 500px;
     text-align: center;
-}
-
-.mmmm input{
     height: 40vh;
 }
 
@@ -171,9 +168,6 @@
     height: auto; 
     padding: 5vw;
 }
-
-
-
 
 
 @media screen and (max-width: 1200px) {
@@ -229,11 +223,11 @@
         font-size: 2.5vh;
     }
 
-     .telefone h2{
+    .telefone h2{
           font-size: 2.5vh;
     }
                 
-     .email h2 {
+    .email h2 {
          font-size: 2.5vh;
      }
 }
@@ -294,7 +288,8 @@
     }
     .cemail{
         font-size: 10px;
-    }.ccoment{
+    }
+    .ccoment{
         font-size: 10px;
     }
 

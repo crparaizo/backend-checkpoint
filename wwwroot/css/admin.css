@@ -84,6 +84,12 @@
     padding-bottom: 20px;
 }
 
+.banner h2{
+    color: darkgrey;
+    justify-content: center;
+    align-items: center;
+}
+
 .banner-img img{
     height: 100px;
 }
@@ -107,11 +113,9 @@
 }
 
 .quase-pai{
+    padding: 2vh 25vh;
     display: flex;
-}
-
-.quase2{
-    padding-left: 3vw;
+    justify-content: space-around;
 }
 
 .mmmm{
@@ -120,15 +124,12 @@
     text-align: center;
     width: auto;
     height: auto;
-    padding: 10vh;
+    padding: 5vh 0 3vh 0;
 }
 
 .mmmm input{
     width: 500px;
     text-align: center;
-}
-
-.mmmm input{
     height: 40vh;
 }
 
@@ -144,12 +145,18 @@
     justify-content: center;
 }
 
+.division{
+    width: 100%;
+    height: 1vh;;
+    background: lightgoldenrodyellow;
+}
+
 .aprovar{
-    background-color: green;
+    background-color: lightseagreen;
 }
 
 .rejeitar{
-    background-color: red;
+    background-color: lightsalmon;
 }
 
 .baixo{
@@ -177,9 +184,6 @@
 }
 
 
-
-
-
 @media screen and (max-width: 1200px) {
 
     .pppp{
@@ -189,7 +193,6 @@
     .mmmm{
         padding: 5vh;
     }
-
 }
 
 @media screen and (max-width: 1050px) {
@@ -197,7 +200,6 @@
     .endereco{
         width: 45vw;
     }
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -218,11 +220,11 @@
         font-size: 2.5vh;
     }
 
-     .telefone h2{
+    .telefone h2{
           font-size: 2.5vh;
     }
                 
-     .email h2 {
+    .email h2 {
          font-size: 2.5vh;
      }
 }

@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/comentarios.css">
+    <link rel="stylesheet" href="/css/admin.css">
     <title>Comentários</title>
 
 </head>
@@ -64,15 +64,14 @@
 
         @foreach(ComentariosModel comentario in ViewData["Comentarios"] as List<ComentariosModel> ) {
             <div class="quase-pai">
-                <div class="quase1">
+                <div class="lnome">
                     Nome: @comentario.Nome
-                    <br>
-                    <br>
+                </div>
+                <div class="lemail">                        
                     Email: @comentario.Email
                 </div>
-                <div class="quase2">
+                <div class="ldata">
                     Data: @comentario.DataCriacao
-
                 </div>
             </div>
 
@@ -85,14 +84,24 @@
                                 disabled>
 
                         </label>
-
-                        <a href="/Comentarios/Aprovar?id=@comentario.ID" class="aprovar">Aprovar</a>  @TempData["Aprovar"]
-                        <a href="/Comentarios/Rejeitar?id=@comentario.ID" class="rejeitar">Rejeitar</a> @TempData["Rejeitar"]
-
+                        <br>
+                        <br>
+                        <div class="status">
+                        <a href="/Comentarios/Aprovar?id=@comentario.ID" class="aprovar">Aprovar</a>  
+                        @TempData["Aprovar"]
+                        <br> 
+                        <a href="/Comentarios/Rejeitar?id=@comentario.ID" class="rejeitar">Rejeitar</a>
+                        @TempData["Rejeitar"]
+                        <br> 
+                        </div>
+                        <br>
+                        <br>
                     </div>
                 </div>
 
             </div>
+
+            <div class="division"></div>
 
             }
 

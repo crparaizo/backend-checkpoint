@@ -112,9 +112,6 @@
 .mmmm input,textarea{
     width: 300px;
     text-align: center;
-}
-
-.mmmm input{
     height: 5vh;
 }
 
@@ -161,10 +158,6 @@
 }
 
 
-
-
-
-
 @media screen and (max-width: 1200px) {
 
     .pppp{
@@ -180,6 +173,10 @@
 
     .endereco{
         width: 45vw;
+    }
+
+    .butt{
+        width: 8vw;
     }
 }
 
@@ -201,11 +198,11 @@
         font-size: 2.5vh;
     }
 
-     .telefone h2{
+    .telefone h2{
           font-size: 2.5vh;
     }
                 
-     .email h2 {
+    .email h2 {
          font-size: 2.5vh;
      }
 }
@@ -259,7 +256,11 @@
 
     .quebra{
         height: 5vh;
-    }       
+    }    
+    
+    .butt{
+        width: 8vh;
+    }
 }
 
 @media screen and (max-width: 520px) { 

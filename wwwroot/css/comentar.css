@@ -96,17 +96,22 @@
 
 .titulo{
     text-align: center;
+    padding: 2vh 0 0 0;
+    font-size: 8vh;
+}
+
+.titulo{
+    text-align: center;
     padding: 3vh;
     font-size: 25px;
 }
 
 .quase-pai{
     display: flex;
+    justify-content: space-evenly;
+    padding: 2vh 0 0 0;
 }
 
-.quase2{
-    padding-left: 3vw;
-}
 
 .mmmm{
     display: flex;
@@ -114,16 +119,32 @@
     text-align: center;
     width: auto;
     height: auto;
-    padding: 10vh;
+    padding: 10vh 0;
 }
 
 .mmmm input{
     width: 500px;
     text-align: center;
+    height: 40vh;
+
 }
 
-.mmmm input{
+/* .mmmm input{
     height: 40vh;
+} */
+
+.mmmm p{
+    padding-bottom: 3.5vh;
+}
+
+.mmmm a{
+    font-size: 3.5vh;
+}
+
+.butt{
+    width: 5vw;
+    height: 5vh;
+    margin-bottom: 2vh;
 }
 
 .telefone{

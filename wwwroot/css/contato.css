@@ -176,6 +176,7 @@
     width: 100%;
     height: 100%;
 }
+
 #chat .perfil-dados{
     flex: 4;
 }
@@ -265,10 +266,6 @@
 }
 
 
-
-
-
-
 @media screen and (max-width: 1200px) {
 
     .pppp{
@@ -324,11 +321,11 @@
         font-size: 2.5vh;
     }
 
-     .telefone h2{
+    .telefone h2{
           font-size: 2.5vh;
     }
                 
-     .email h2 {
+    .email h2 {
          font-size: 2.5vh;
      }
 }

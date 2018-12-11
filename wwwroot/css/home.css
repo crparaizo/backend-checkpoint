@@ -163,6 +163,7 @@
     width: 80%;
     margin: auto;
 }
+
 .tabela > *{
     display: flex;
     flex-direction: column;
@@ -193,8 +194,7 @@
     border: 5px solid black;
     background: url('../imagens/pAtivo\ 5.png');
     background-size: cover;
-    background-position: center;
-    
+    background-position: center;    
 }
 
 .premium{
@@ -203,7 +203,6 @@
     background-size: cover;
     background-position: center;
 }
-
 
 .mais{
     display: flex;
@@ -358,8 +357,7 @@
 @media screen and (max-width: 808px) {
 
     .topicos h3{
-        font-size: 2vh;
-        
+        font-size: 2vh;        
     }
 }
 

@@ -50,6 +50,8 @@ namespace Senai.Checkpoint.Mvc.Controllers {
 
             ComentariosRepositorio.Comentar (comentariosModel);
 
+            TempData["Coment"] = "Comentário enviado para aprovação!";
+
             return View ();
         }
 
